@@ -1,0 +1,31 @@
+type Notification {
+  id: ID!
+  description: String!
+  type: String!
+  active: Boolean!
+  icon: String!
+  color: String!
+  user: User!
+}
+
+input NotificationInput {
+  description: String!
+  type: String!
+  active: Boolean!
+  icon: String!
+  color: String!
+  user: String!
+}
+
+type Query {
+  notifications(filter: String, sort: String): [Notification]
+}
+
+type Mutation {
+  createNotification(input: NotificationInput): Notification
+  deactivateNotification(id: ID!): Notification
+}
+
+type Subscription {
+  notificationCreated(user: ID): Notification
+}

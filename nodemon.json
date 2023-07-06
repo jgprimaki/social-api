@@ -1,0 +1,6 @@
+{
+  "verbose": true,
+  "watch": ["src/*"],
+  "ext": "js, graphql",
+  "exec": "cross-env BABEL_ENV='node' babel-node -r dotenv/config server.js"
+}

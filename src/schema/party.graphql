@@ -1,0 +1,26 @@
+type Party {
+  id: ID!
+  name: String
+  date: String
+  locale: String
+  note: String
+  time_start: String
+  time_end: String
+  members: [PartyMember!]
+}
+
+type Query {
+  partys: [Party]
+}
+
+type Mutation {
+  createParty(
+    name: String!
+    date: String!
+    locale: String!
+    time_start: String!
+    time_end: String!
+    members: [String!]!
+    note: String
+  ): Party
+}

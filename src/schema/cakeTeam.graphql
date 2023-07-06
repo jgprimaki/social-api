@@ -1,0 +1,11 @@
+type CakeTeam {
+  id: ID!
+  name: String
+  week_day: String
+  schedule: [CakeSchedule]
+}
+
+type Query {
+  cakeTeams: [CakeTeam]
+  cakeTeam: CakeTeam
+}

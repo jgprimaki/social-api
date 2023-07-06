@@ -1,0 +1,49 @@
+type Meeting {
+  id: ID!
+  name: String!
+  start_date: String!
+  start_time: String!
+  end_time: String!
+  color: String!
+  room: Int!
+  user: User!
+  members: [User!]
+  end_date: String
+  description: String
+  active: Boolean
+}
+
+input PaginationInput {
+  perPage: Int!
+  page: Int!
+}
+
+input meetingInput {
+  name: String!
+  start_date: String!
+  start_time: String!
+  end_time: String!
+  color: String!
+  room: Int!
+  user: String!
+  members: [String!]
+  end_date: String
+  description: String
+  active: Boolean
+}
+
+type Query {
+  meetings(filter: String, pagination: PaginationInput, sort: String): [Meeting]
+  meeting(id: String!): Meeting
+  meetingCount: Int
+}
+
+type Mutation {
+  createMeeting(input: meetingInput): Meeting
+  cancelMeeting(id: String): Meeting
+}
+
+type Subscription {
+  meetingCreated: Meeting
+  meetingCanceled: Meeting
+}

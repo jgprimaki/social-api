@@ -1,0 +1,45 @@
+type User {
+  id: ID!
+  keycloak_uuid: String!
+  name_complete: String!
+  email: String!
+  birthday: String!
+  phone: String!
+  teams: [Team!]!
+  theme_dark: Boolean
+  studying: Boolean
+  pis: String
+  cake_teams: [CakeTeam!]
+}
+
+input PaginationInput {
+  perPage: Int!
+  page: Int!
+}
+
+input UserInput {
+  keycloak_uuid: String!
+  name_complete: String!
+  email: String!
+  birthday: String!
+  phone: String!
+  teams: [String!]!
+  pis: String
+  studying: Boolean
+  cake_teams: [String!]
+}
+
+input ThemeInput {
+  keycloak_uuid: String!
+  theme_dark: Boolean
+}
+
+type Query {
+  users(filter: String, pagination: PaginationInput, sort: String): [User]
+  user(keycloak_uuid: String!): User
+}
+
+type Mutation {
+  createUser(input: UserInput): User
+  updateTheme(input: ThemeInput): User
+}

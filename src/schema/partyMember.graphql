@@ -1,0 +1,13 @@
+type PartyMember {
+  id: ID!
+  confirmed: Boolean
+  user: User!
+}
+
+type Query {
+  partyMembers: [PartyMember]
+}
+
+type Mutation {
+  createPartyMember(confirmed: Boolean, user: String!): Party
+}

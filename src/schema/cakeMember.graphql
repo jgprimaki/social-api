@@ -1,0 +1,10 @@
+type CakeMember {
+  id: ID!
+  user: User!
+  date: String
+  active: Boolean
+}
+
+type Query {
+  cakeMember: [CakeMember]
+}
